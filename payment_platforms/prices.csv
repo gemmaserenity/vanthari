@@ -1,0 +1,7 @@
+Price ID,Product ID,Product Name,Product Statement Descriptor,Product Tax Code,Description,Created (UTC),Amount,Currency,Interval,Interval Count,Usage Type,Aggregate Usage,Billing Scheme,Trial Period Days,Tax Behavior
+price_1U8Ae1PoTLTSVLKOBb8LhSG2,prod_V8QtnpF55u7L5P,Vanthari Circle membership,,,Vanthari 7-day trial,2026-08-25 03:03,125.00,usd,week,1,licensed,,per_unit,,unspecified
+price_1U8AGmPoTLTSVLKO5ExE0hw1,prod_V8QuWCJxQbA3IF,Vanthari Sovereign membership,,,Vanthari 7-day trial,2026-08-25 02:39,249.00,usd,week,1,licensed,,per_unit,,unspecified
+price_1U8AD9PoTLTSVLKOdr20CWgA,prod_V8QsihF0nf0o7S,Vanthari Kindred membership (basic),Vanthari,,Vanthari 7-day trial,2026-08-25 02:35,49.00,usd,week,1,licensed,,per_unit,,unspecified
+price_1U8A2xPoTLTSVLKOy92ufD4d,prod_V8QuWCJxQbA3IF,Vanthari Sovereign membership,,,,2026-08-25 02:25,999.00,usd,month,1,licensed,,per_unit,,unspecified
+price_1U8A1pPoTLTSVLKOqhwkjywN,prod_V8QtnpF55u7L5P,Vanthari Circle membership,,,,2026-08-25 02:23,499.00,usd,month,1,licensed,,per_unit,,unspecified
+price_1U8A0RPoTLTSVLKObd4X8xxg,prod_V8QsihF0nf0o7S,Vanthari Kindred membership (basic),Vanthari,,,2026-08-25 02:22,199.00,usd,month,1,licensed,,per_unit,,unspecified
