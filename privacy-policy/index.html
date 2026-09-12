@@ -7,7 +7,7 @@
   <title>Privacy Policy — VANTHARI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/legal.css">
 </head>
 <body>
@@ -22,25 +22,27 @@
     <p class="summary">This policy explains what information VANTHARI collects, how we use it, who receives it, how it is disclosed, and the safeguards used to protect it.</p>
 
     <h2>1. Scope</h2>
-    <p>This Privacy Policy applies to the VANTHARI public website, membership checkout experience, and communications related to a VANTHARI membership. Stripe separately controls information it collects through its hosted checkout and payment services under the <a href="https://stripe.com/privacy" rel="noopener">Stripe Privacy Policy</a>.</p>
+    <p>This Privacy Policy applies to the VANTHARI public website, customer-service form, membership checkout experience, and communications related to a VANTHARI membership. Stripe separately controls information it collects through its hosted checkout and payment services under the <a href="https://stripe.com/privacy" rel="noopener">Stripe Privacy Policy</a>.</p>
 
     <h2>2. Information we collect</h2>
     <table class="data-table">
       <thead><tr><th>Category</th><th>Information</th><th>Source</th></tr></thead>
       <tbody>
         <tr><td>Identity and contact</td><td>Name, business name, and email address</td><td>You provide this information through Stripe Checkout.</td></tr>
+        <tr><td>Customer service</td><td>Name, email address, selected support topic, message in its original language, detected language, and English translation</td><td>You provide the form information directly. Cloudflare's AI service generates the language detection and English translation.</td></tr>
         <tr><td>Billing</td><td>Billing address, membership tier, subscription status, payment amount, transaction dates, and Stripe customer or subscription identifiers</td><td>Stripe provides transaction and subscription information to VANTHARI. Stripe collects and processes payment-card details directly. VANTHARI does not receive your full card number or security code.</td></tr>
         <tr><td>Website preference</td><td>Your selected website language</td><td>The public website stores this choice in your browser's local storage so it can remember your preference.</td></tr>
         <tr><td>Technical and security</td><td>IP address, browser and device information, request time, referring page, and security or diagnostic logs</td><td>Our hosting and content-delivery providers may collect this information automatically when they deliver and protect the website.</td></tr>
       </tbody>
     </table>
-    <p>VANTHARI does not collect a phone number through its membership checkout flow. The public website does not currently provide a profile form or community account form.</p>
+    <p>VANTHARI does not collect a phone number through its membership checkout flow or customer-service form. The public website does not currently provide a profile form or community account form.</p>
 
     <h2>3. How we use information</h2>
     <ul>
       <li>Process and administer the seven-day trial and monthly membership subscription.</li>
       <li>Identify the member and provide membership services, access, receipts, and service communications.</li>
       <li>Respond to support, billing, cancellation, and account requests.</li>
+      <li>Detect the language of customer-service messages, translate them into English, deliver the original and translated versions to VANTHARI, and show the sender the English translation.</li>
       <li>Maintain the website, remember language preferences, prevent fraud, and protect VANTHARI and its members.</li>
       <li>Keep financial and operational records and comply with legal, tax, accounting, and regulatory obligations.</li>
       <li>Enforce our Terms of Service and resolve disputes.</li>
@@ -51,6 +53,7 @@
     <ul>
       <li><strong>Stripe and payment partners.</strong> The browser redirects you to Stripe's hosted checkout. Stripe processes your identity, contact, billing, and payment information and makes relevant customer, transaction, and subscription records available to VANTHARI through Stripe's encrypted systems and merchant dashboard.</li>
       <li><strong>Website hosting and security providers.</strong> Hosting, domain, content-delivery, and security providers receive technical request data electronically when serving or protecting the website.</li>
+      <li><strong>Cloudflare and Resend customer-service processing.</strong> The customer-service form uses Cloudflare Pages Functions and Workers AI to process the sender's name, email, topic, message, detected language, and English translation. Resend receives the information needed to deliver both message versions electronically to VANTHARI.</li>
       <li><strong>Google Fonts.</strong> The website requests font files from Google. Google may receive technical request information such as an IP address and browser details under the <a href="https://policies.google.com/privacy" rel="noopener">Google Privacy Policy</a>.</li>
       <li><strong>Professional advisers and service providers.</strong> Accountants, legal advisers, and vendors may receive the limited information needed to perform services for VANTHARI, subject to appropriate confidentiality or data-protection obligations.</li>
       <li><strong>Authorities and transaction parties.</strong> We may disclose information electronically or in another legally permitted form when required by law, to protect rights and safety, or as part of a merger, financing, reorganization, or transfer of the business.</li>
@@ -58,17 +61,17 @@
     <p>VANTHARI does not sell personal information or share it for cross-context behavioral advertising.</p>
 
     <h2>5. How information is disclosed</h2>
-    <p>Information is generally disclosed through encrypted website connections, secured provider APIs, restricted administrative dashboards, and protected business records. We limit disclosures to the information needed for the recipient's function. We do not publish member billing or contact information.</p>
+    <p>Information is generally disclosed through encrypted website connections, secured provider APIs, restricted administrative dashboards, protected email delivery, and protected business records. Customer-service messages are sent to VANTHARI by email with the sender's address as the reply-to address. We limit disclosures to the information needed for the recipient's function. We do not publish member billing or contact information.</p>
 
     <h2>6. Security practices</h2>
     <p>VANTHARI uses reasonable administrative, technical, and organizational safeguards appropriate to the information involved. These include HTTPS encryption in transit, Stripe-hosted payment collection, restricted access to payment and membership records, separation of public website code from secret credentials, security headers, and service providers designed to protect account and transaction data. No system can guarantee absolute security, but we review safeguards and limit access to people and providers with a business need.</p>
 
     <h2>7. Retention</h2>
-    <p>We retain personal information only for as long as needed to administer the membership, provide services, resolve disputes, enforce agreements, and meet legal, accounting, and tax obligations. Retention periods can differ by record type and jurisdiction. Stripe retains information under its own policy.</p>
+    <p>We retain personal information only for as long as needed to administer the membership, answer customer-service messages, provide services, resolve disputes, enforce agreements, and meet legal, accounting, and tax obligations. Support email records may remain in VANTHARI's protected mailbox while needed for follow-up and business records. Retention periods can differ by record type and jurisdiction. Stripe, Cloudflare, and Resend retain information under their own policies and service terms.</p>
 
     <h2>8. Your choices and rights</h2>
     <p>Depending on where you live, you may have rights to request access, correction, deletion, portability, or restriction of certain processing, or to object to certain uses. You may also cancel your membership using the subscription-management instructions supplied by Stripe or VANTHARI. Some records may be retained where required by law or needed to establish or defend legal claims.</p>
-    <p>You can remove the saved language preference by clearing this site's data in your browser. To exercise a privacy right or ask a question, contact VANTHARI using the contact details in your payment receipt or membership correspondence. We may need to verify your identity before completing a request.</p>
+    <p>You can remove the saved language preference by clearing this site's data in your browser. To exercise a privacy right or ask a question, use the <a href="/customer-service/">customer-service form</a> or contact VANTHARI using the details in your payment receipt or membership correspondence. We may need to verify your identity before completing a request.</p>
 
     <h2>9. International use</h2>
     <p>VANTHARI is a global network. Information may be processed in countries other than the one where you live. Where required, VANTHARI and its providers use legally recognized protections for international transfers.</p>
@@ -81,7 +84,7 @@
   </main>
   <footer class="legal-footer">
     <span>VANTHARI</span>
-    <div><a href="/privacy-policy/">Privacy Policy</a><a href="/terms-of-service/">Terms of Service</a><a href="/">Home</a></div>
+    <div><a href="/customer-service/">Customer Service</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms-of-service/">Terms of Service</a><a href="/">Home</a></div>
   </footer>
 </body>
 </html>

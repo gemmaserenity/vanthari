@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Contact VANTHARI customer service in any language.">
+  <title>Customer Service — VANTHARI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/legal.css">
+</head>
+<body>
+  <nav class="legal-nav" aria-label="Customer service navigation">
+    <a class="wordmark" href="/">VANTH<em>ARI</em></a>
+    <a class="back-link" href="/" data-copy="back">Back to VANTHARI</a>
+  </nav>
+
+  <main class="service-main">
+    <div class="eyebrow" data-copy="eyebrow">Customer Service</div>
+    <h1 data-copy="title">Write in your language.</h1>
+    <p class="service-intro" data-copy="intro">Tell us how we can help in any language. We will translate your message into English, send both versions securely to VANTHARI, and show you the English translation.</p>
+
+    <form id="support-form" class="support-form" novalidate>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="name" data-copy="nameLabel">Your name</label>
+          <input id="name" name="name" type="text" autocomplete="name" maxlength="120" required>
+        </div>
+        <div class="form-field">
+          <label for="email" data-copy="emailLabel">Your email</label>
+          <input id="email" name="email" type="email" autocomplete="email" maxlength="254" required>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="topic" data-copy="topicLabel">What can we help with?</label>
+        <select id="topic" name="topic" required>
+          <option value="" data-copy="topicChoose">Choose a topic</option>
+          <option value="Membership" data-copy="topicMembership">Membership</option>
+          <option value="Billing" data-copy="topicBilling">Billing or cancellation</option>
+          <option value="Events" data-copy="topicEvents">Events or introductions</option>
+          <option value="Technical" data-copy="topicTechnical">Technical help</option>
+          <option value="Other" data-copy="topicOther">Something else</option>
+        </select>
+      </div>
+
+      <div class="form-field">
+        <label for="message" data-copy="messageLabel">Your message — any language</label>
+        <textarea id="message" name="message" rows="8" minlength="2" maxlength="5000" required></textarea>
+        <div class="field-note"><span data-copy="messageNote">Please do not include card numbers, passwords, or other sensitive information.</span> <span id="message-count">0 / 5000</span></div>
+      </div>
+
+      <div class="form-trap" aria-hidden="true">
+        <label for="website">Website</label>
+        <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <input id="started-at" name="startedAt" type="hidden">
+      <p class="form-privacy" data-copy-html="privacy">By sending this form, you agree that VANTHARI may process and translate your message to respond to you. See our <a href="/privacy-policy/">Privacy Policy</a>.</p>
+      <button id="submit-button" class="service-button" type="submit" data-copy="submit">Translate and send</button>
+      <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+    </form>
+
+    <section id="translation-result" class="translation-result" hidden tabindex="-1">
+      <div class="eyebrow" data-copy="resultEyebrow">English translation</div>
+      <h2 data-copy="resultTitle">This is what VANTHARI received.</h2>
+      <p class="detected-language"><strong data-copy="detectedLabel">Detected language:</strong> <span id="detected-language"></span></p>
+      <div id="translated-message" class="translated-message"></div>
+      <p class="delivery-confirmation" data-copy="confirmation">Your original message and this English translation were emailed to VANTHARI Customer Service.</p>
+    </section>
+  </main>
+
+  <footer class="legal-footer">
+    <span>VANTHARI</span>
+    <div><a href="/customer-service/" data-copy="footerSupport">Customer Service</a><a href="/privacy-policy/" data-copy="footerPrivacy">Privacy Policy</a><a href="/terms-of-service/" data-copy="footerTerms">Terms of Service</a><a href="/" data-copy="footerHome">Home</a></div>
+  </footer>
+
+  <script>
+    (function(){
+      const copy = {
+        en: {
+          back:'Back to VANTHARI', eyebrow:'Customer Service', title:'Write in your language.',
+          intro:'Tell us how we can help in any language. We will translate your message into English, send both versions securely to VANTHARI, and show you the English translation.',
+          nameLabel:'Your name', emailLabel:'Your email', topicLabel:'What can we help with?', topicChoose:'Choose a topic',
+          topicMembership:'Membership', topicBilling:'Billing or cancellation', topicEvents:'Events or introductions', topicTechnical:'Technical help', topicOther:'Something else',
+          messageLabel:'Your message — any language', messageNote:'Please do not include card numbers, passwords, or other sensitive information.',
+          privacy:'By sending this form, you agree that VANTHARI may process and translate your message to respond to you. See our <a href="/privacy-policy/">Privacy Policy</a>.',
+          submit:'Translate and send', sending:'Translating and sending your message…', success:'Message delivered.',
+          error:'We could not send your message. Please try again in a moment.', validation:'Please complete your name, email, topic, and message.',
+          resultEyebrow:'English translation', resultTitle:'This is what VANTHARI received.', detectedLabel:'Detected language:',
+          confirmation:'Your original message and this English translation were emailed to VANTHARI Customer Service.',
+          footerSupport:'Customer Service', footerPrivacy:'Privacy Policy', footerTerms:'Terms of Service', footerHome:'Home'
+        },
+        fr: {
+          back:'Retour à VANTHARI', eyebrow:'Service client', title:'Écrivez dans votre langue.',
+          intro:'Expliquez-nous comment nous pouvons vous aider, dans la langue de votre choix. Nous traduirons votre message en anglais, enverrons les deux versions à VANTHARI de façon sécurisée et vous montrerons la traduction anglaise.',
+          nameLabel:'Votre nom', emailLabel:'Votre adresse e-mail', topicLabel:'Comment pouvons-nous vous aider ?', topicChoose:'Choisissez un sujet',
+          topicMembership:'Adhésion', topicBilling:'Facturation ou résiliation', topicEvents:'Événements ou présentations', topicTechnical:'Assistance technique', topicOther:'Autre demande',
+          messageLabel:'Votre message — dans la langue de votre choix', messageNote:'N’indiquez aucun numéro de carte, mot de passe ou autre renseignement sensible.',
+          privacy:'En envoyant ce formulaire, vous acceptez que VANTHARI traite et traduise votre message afin de vous répondre. Consultez notre <a href="/privacy-policy/">Politique de confidentialité</a>.',
+          submit:'Traduire et envoyer', sending:'Traduction et envoi de votre message…', success:'Message envoyé.',
+          error:'Nous n’avons pas pu envoyer votre message. Veuillez réessayer dans un instant.', validation:'Veuillez renseigner votre nom, votre adresse e-mail, le sujet et votre message.',
+          resultEyebrow:'Traduction anglaise', resultTitle:'Voici ce que VANTHARI a reçu.', detectedLabel:'Langue détectée :',
+          confirmation:'Votre message original et cette traduction anglaise ont été envoyés par e-mail au service client de VANTHARI.',
+          footerSupport:'Service client', footerPrivacy:'Confidentialité', footerTerms:'Conditions', footerHome:'Accueil'
+        },
+        de: {
+          back:'Zurück zu VANTHARI', eyebrow:'Kundenservice', title:'Schreiben Sie in Ihrer Sprache.',
+          intro:'Schildern Sie Ihr Anliegen in einer beliebigen Sprache. Wir übersetzen Ihre Nachricht ins Englische, senden beide Versionen sicher an VANTHARI und zeigen Ihnen die englische Übersetzung.',
+          nameLabel:'Ihr Name', emailLabel:'Ihre E-Mail-Adresse', topicLabel:'Wobei können wir helfen?', topicChoose:'Thema auswählen',
+          topicMembership:'Mitgliedschaft', topicBilling:'Abrechnung oder Kündigung', topicEvents:'Veranstaltungen oder Vorstellungen', topicTechnical:'Technische Hilfe', topicOther:'Anderes Anliegen',
+          messageLabel:'Ihre Nachricht — in jeder Sprache', messageNote:'Bitte geben Sie keine Kartennummern, Passwörter oder andere vertrauliche Informationen an.',
+          privacy:'Mit dem Absenden stimmen Sie zu, dass VANTHARI Ihre Nachricht zur Beantwortung verarbeitet und übersetzt. Lesen Sie unsere <a href="/privacy-policy/">Datenschutzerklärung</a>.',
+          submit:'Übersetzen und senden', sending:'Ihre Nachricht wird übersetzt und gesendet…', success:'Nachricht zugestellt.',
+          error:'Ihre Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es gleich noch einmal.', validation:'Bitte geben Sie Name, E-Mail-Adresse, Thema und Nachricht ein.',
+          resultEyebrow:'Englische Übersetzung', resultTitle:'Das hat VANTHARI erhalten.', detectedLabel:'Erkannte Sprache:',
+          confirmation:'Ihre ursprüngliche Nachricht und diese englische Übersetzung wurden per E-Mail an den VANTHARI-Kundenservice gesendet.',
+          footerSupport:'Kundenservice', footerPrivacy:'Datenschutz', footerTerms:'Bedingungen', footerHome:'Startseite'
+        },
+        es: {
+          back:'Volver a VANTHARI', eyebrow:'Atención al cliente', title:'Escribe en tu idioma.',
+          intro:'Cuéntanos cómo podemos ayudarte en cualquier idioma. Traduciremos tu mensaje al inglés, enviaremos ambas versiones de forma segura a VANTHARI y te mostraremos la traducción al inglés.',
+          nameLabel:'Tu nombre', emailLabel:'Tu correo electrónico', topicLabel:'¿Cómo podemos ayudarte?', topicChoose:'Elige un tema',
+          topicMembership:'Membresía', topicBilling:'Facturación o cancelación', topicEvents:'Eventos o presentaciones', topicTechnical:'Ayuda técnica', topicOther:'Otro asunto',
+          messageLabel:'Tu mensaje — en cualquier idioma', messageNote:'No incluyas números de tarjeta, contraseñas ni otra información confidencial.',
+          privacy:'Al enviar este formulario, aceptas que VANTHARI procese y traduzca tu mensaje para responderte. Consulta nuestra <a href="/privacy-policy/">Política de privacidad</a>.',
+          submit:'Traducir y enviar', sending:'Traduciendo y enviando tu mensaje…', success:'Mensaje entregado.',
+          error:'No pudimos enviar tu mensaje. Inténtalo de nuevo en unos instantes.', validation:'Completa tu nombre, correo electrónico, tema y mensaje.',
+          resultEyebrow:'Traducción al inglés', resultTitle:'Esto es lo que recibió VANTHARI.', detectedLabel:'Idioma detectado:',
+          confirmation:'Tu mensaje original y esta traducción al inglés se enviaron por correo electrónico al servicio de atención al cliente de VANTHARI.',
+          footerSupport:'Atención al cliente', footerPrivacy:'Privacidad', footerTerms:'Términos', footerHome:'Inicio'
+        }
+      };
+
+      let language = 'en';
+      try { language = localStorage.getItem('vanthari-language') || language; } catch (_) {}
+      if(!copy[language]) language = (navigator.language || 'en').slice(0, 2).toLowerCase();
+      if(!copy[language]) language = 'en';
+      const strings = copy[language];
+      document.documentElement.lang = language;
+      document.querySelectorAll('[data-copy]').forEach((element) => {
+        const value = strings[element.dataset.copy];
+        if(value !== undefined) element.textContent = value;
+      });
+      document.querySelectorAll('[data-copy-html]').forEach((element) => {
+        const value = strings[element.dataset.copyHtml];
+        if(value !== undefined) element.innerHTML = value;
+      });
+
+      const form = document.getElementById('support-form');
+      const message = document.getElementById('message');
+      const counter = document.getElementById('message-count');
+      const status = document.getElementById('form-status');
+      const button = document.getElementById('submit-button');
+      const result = document.getElementById('translation-result');
+      const field = (name) => form.elements.namedItem(name);
+      document.getElementById('started-at').value = String(Date.now());
+
+      message.addEventListener('input', () => { counter.textContent = message.value.length + ' / 5000'; });
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        result.hidden = true;
+        status.className = 'form-status';
+        if(!form.reportValidity()) {
+          status.textContent = strings.validation;
+          status.classList.add('is-error');
+          return;
+        }
+
+        button.disabled = true;
+        status.textContent = strings.sending;
+        try {
+          const response = await fetch('/api/customer-service', {
+            method: 'POST',
+            headers: {'Content-Type':'application/json', 'Accept':'application/json'},
+            body: JSON.stringify({
+              name: field('name').value,
+              email: field('email').value,
+              topic: field('topic').value,
+              message: field('message').value,
+              website: field('website').value,
+              startedAt: Number(field('startedAt').value)
+            })
+          });
+          const payload = await response.json().catch(() => ({}));
+          if(!response.ok || !payload.ok) throw new Error(payload.error || 'Request failed');
+
+          document.getElementById('detected-language').textContent = payload.detectedLanguage;
+          document.getElementById('translated-message').textContent = payload.translation;
+          result.hidden = false;
+          status.textContent = strings.success;
+          status.classList.add('is-success');
+          form.reset();
+          counter.textContent = '0 / 5000';
+          document.getElementById('started-at').value = String(Date.now());
+          result.focus();
+        } catch (_) {
+          status.textContent = strings.error;
+          status.classList.add('is-error');
+        } finally {
+          button.disabled = false;
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

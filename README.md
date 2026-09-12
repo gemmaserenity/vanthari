@@ -5,6 +5,8 @@ VANTHARI's multilingual public website. The current release is a static site wit
 ## Files
 
 - `index.html` — complete website, styles, animations, and translations
+- `customer-service/index.html` — multilingual customer-service form and English translation display
+- `functions/api/customer-service.js` — same-origin translation and email endpoint for Cloudflare Pages
 - `_headers` — baseline security headers for Cloudflare Pages
 
 ## Preview locally
@@ -21,6 +23,17 @@ Open `index.html` directly in a browser, or serve this directory with any local 
 6. Use the repository's main branch as the production branch.
 
 Cloudflare will publish the top-level `index.html` and create preview deployments for other branches and pull requests.
+
+## Customer service translation and email
+
+The customer-service form accepts a message in any language, uses a Cloudflare Workers AI binding to detect its language and translate it into English, emails both versions to `support@gns-success.com` through Resend, and shows the English translation to the sender. No API key is placed in the browser or committed to GitHub.
+
+Before the form can send live email, configure the production and preview environments in **Cloudflare Pages → Settings → Bindings / Variables and Secrets**:
+
+1. Add a Workers AI binding named `AI`.
+2. Add `RESEND_API_KEY` as an encrypted secret and paste the Resend API key into it.
+
+The verified Resend sender and destination are both `support@gns-success.com`. The public endpoint validates and limits inputs, uses same-origin requests, includes a honeypot and minimum completion time, and does not log message text or email addresses. For production traffic, add a Cloudflare rate-limiting rule or Turnstile challenge for `/api/customer-service`.
 
 ## Stripe membership checkout
 
