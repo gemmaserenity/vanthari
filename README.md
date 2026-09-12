@@ -50,7 +50,7 @@ Defined membership offer:
 - The recurring charge begins after seven days and continues monthly until canceled
 - Public website areas remain available without registration
 - Meetings, the private community, introductions, and membership benefits begin with the 7-day trial
-- Initial availability: United States, Canada, United Kingdom, Germany, Austria, France, Spain, Australia, New Zealand, Benin, Ghana, Nigeria, and Niger
+- Initial availability: United States, Canada, United Kingdom, Germany, Austria, France, Spain, Australia, New Zealand, Benin, Ghana, Nigeria, Niger, and Uganda
 
 Still to define before checkout goes live:
 
