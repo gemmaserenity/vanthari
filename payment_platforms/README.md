@@ -2,20 +2,36 @@
 
 The CSV files in this directory are read-only snapshots exported from Stripe. Do not edit their IDs or amounts by hand. Re-export them after changing Stripe products or prices.
 
-## Export reviewed on 2026-08-24
+## Export reviewed on 2026-09-11
 
-| Tier | Product ID | Trial price in export | Ongoing price in export | Intended website offer |
-| --- | --- | --- | --- | --- |
-| Kindred | `prod_V8QsihF0nf0o7S` | `price_1U8AD9PoTLTSVLKOdr20CWgA` — $49/week | `price_1U8A0RPoTLTSVLKObd4X8xxg` — $199/month | $49 for 7 days, then $199 every 30 days |
-| Circle | `prod_V8QtnpF55u7L5P` | `price_1U8AFjPoTLTSVLKO7M2hsYdc` — $149/week | `price_1U8A1pPoTLTSVLKOqhwkjywN` — $499/month | $125 for 7 days, then $499 every 30 days |
-| Sovereign | `prod_V8QuWCJxQbA3IF` | `price_1U8AGmPoTLTSVLKO5ExE0hw1` — $249/week | `price_1U8A2xPoTLTSVLKOy92ufD4d` — $999/month | $249 for 7 days, then $999 every 30 days |
+| Tier | Product ID | Ongoing price | Website offer |
+| --- | --- | --- | --- |
+| Kindred | `prod_V8QsihF0nf0o7S` | `price_1U8A0RPoTLTSVLKObd4X8xxg` — $199/month | 7 days free, then $199/month |
+| Circle | `prod_V8QtnpF55u7L5P` | `price_1U8A1pPoTLTSVLKOqhwkjywN` — $499/month | 7 days free, then $499/month |
+| Sovereign | `prod_V8QuWCJxQbA3IF` | `price_1U8A2xPoTLTSVLKOy92ufD4d` — $999/month | 7 days free, then $999/month |
+
+## Live Payment Links
+
+| Tier | Checkout URL |
+| --- | --- |
+| Kindred | `https://buy.stripe.com/fZu4gB4Alaxb1wk09D0Fi02` |
+| Circle | `https://buy.stripe.com/fZudRbgj348N7UI6y10Fi00` |
+| Sovereign | `https://buy.stripe.com/5kQ14p6It0WB3Ese0t0Fi01` |
+
+Each live checkout was verified to show a seven-day free trial, $0 due today, and the matching monthly renewal amount.
 
 ### Items to reconcile in Stripe
 
-1. The exported Circle trial remains $149. Stripe should have a new active $125 trial price before the integration uses its price ID.
-2. The exported ongoing prices use `month × 1`. That renews by calendar month. If the intended term is exactly 30 days, create ongoing prices using `day × 30` and re-export the CSV files.
-3. Keep obsolete prices inactive rather than deleting historical billing records.
+1. The checkout flow no longer uses the exported weekly introductory prices. Confirm they are inactive and archive unused prices rather than deleting historical billing records.
+2. The export contains both $125/week and $149/week Circle prices, plus two $49 Kindred prices with different billing intervals. None is used by the live Payment Links.
+3. The ongoing prices use `month × 1`, so the website describes renewal as monthly rather than exactly every 30 days.
 4. Assign and verify an appropriate Stripe product tax code before enabling automatic tax.
+
+## Payment Link option
+
+The public site is static, so each membership button links directly to its Stripe-hosted Payment Link. Price IDs and Product IDs remain catalog references rather than browser checkout URLs.
+
+A custom Cloudflare Worker can create Checkout Sessions from the same catalog instead. In that design, Payment Links are not required, but the Worker needs the Stripe secret key, success and cancellation URLs, webhook handling, and a secure member-account linking flow.
 
 ## Planned system boundary
 
@@ -79,4 +95,3 @@ The checkout customer must be securely linked to a Supabase user. Do not grant a
 
 1. Require Supabase signup/login before Stripe Checkout, then place the authenticated `user_id` into server-controlled Stripe metadata.
 2. Allow checkout first, then let the purchaser claim the membership through a signed success flow and a verified email invitation.
-

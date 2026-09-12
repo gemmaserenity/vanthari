@@ -22,17 +22,17 @@ Open `index.html` directly in a browser, or serve this directory with any local 
 
 Cloudflare will publish the top-level `index.html` and create preview deployments for other branches and pull requests.
 
-## Stripe membership phase
+## Stripe membership checkout
 
-Stripe checkout must be created server-side; secret keys must never be placed in `index.html` or committed to GitHub. The next phase should add a Cloudflare Worker for checkout sessions and signed Stripe webhooks.
+The membership buttons use Stripe-hosted Payment Links. No Stripe secret keys are placed in `index.html` or committed to GitHub. A later member-access phase should add signed Stripe webhooks so billing status can control private-community entitlements.
 
 Defined membership offer:
 
-- Kindred — $49 USD for the first 7 days, then $199 USD every 30 days
-- Circle — $125 USD for the first 7 days, then $499 USD every 30 days
-- Sovereign — $249 USD for the first 7 days, then $999 USD every 30 days
-- A payment card is required and the 7-day trial charge is collected immediately
-- The standard recurring charge begins seven days later and continues every 30 days until canceled
+- Kindred — 7 days free, then $199 USD per month
+- Circle — 7 days free, then $499 USD per month
+- Sovereign — 7 days free, then $999 USD per month
+- A payment card is required, but nothing is charged when the trial begins
+- The recurring charge begins after seven days and continues monthly until canceled
 - Public website areas remain available without registration
 - Meetings, the private community, introductions, and membership benefits begin with the 7-day trial
 - Initial availability: United States, Canada, United Kingdom, Germany, Austria, France, Spain, Australia, New Zealand, Benin, Ghana, Nigeria, and Niger
