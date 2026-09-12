@@ -13,13 +13,23 @@
 <body>
   <nav class="legal-nav" aria-label="Customer service navigation">
     <a class="wordmark" href="/">VANTH<em>ARI</em></a>
-    <a class="back-link" href="/" data-copy="back">Back to VANTHARI</a>
+    <div class="service-nav-tools">
+      <label for="service-language" data-copy="languageLabel">Language</label>
+      <select id="service-language" class="service-language" aria-label="Language">
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="de">Deutsch</option>
+        <option value="es">Español</option>
+      </select>
+      <a class="back-link" href="/" data-copy="back">Back to VANTHARI</a>
+    </div>
   </nav>
 
   <main class="service-main">
     <div class="eyebrow" data-copy="eyebrow">Customer Service</div>
     <h1 data-copy="title">Write in your language.</h1>
     <p class="service-intro" data-copy="intro">Tell us how we can help in any language. We will translate your message into English, send both versions securely to VANTHARI, and show you the English translation.</p>
+    <p class="language-note"><strong data-copy="otherLanguageTitle">Using another language?</strong> <span data-copy="otherLanguage">You may write in any other language too. It will be detected automatically and translated into English.</span></p>
 
     <form id="support-form" class="support-form" novalidate>
       <div class="form-row">
@@ -80,8 +90,10 @@
     (function(){
       const copy = {
         en: {
+          metaTitle:'Customer Service — VANTHARI', metaDescription:'Contact VANTHARI customer service in any language.', languageLabel:'Language',
           back:'Back to VANTHARI', eyebrow:'Customer Service', title:'Write in your language.',
           intro:'Tell us how we can help in any language. We will translate your message into English, send both versions securely to VANTHARI, and show you the English translation.',
+          otherLanguageTitle:'Using another language?', otherLanguage:'You may write in any other language too. It will be detected automatically and translated into English.',
           nameLabel:'Your name', emailLabel:'Your email', topicLabel:'What can we help with?', topicChoose:'Choose a topic',
           topicMembership:'Membership', topicBilling:'Billing or cancellation', topicEvents:'Events or introductions', topicTechnical:'Technical help', topicOther:'Something else',
           messageLabel:'Your message — any language', messageNote:'Please do not include card numbers, passwords, or other sensitive information.',
@@ -93,8 +105,10 @@
           footerSupport:'Customer Service', footerPrivacy:'Privacy Policy', footerTerms:'Terms of Service', footerHome:'Home'
         },
         fr: {
+          metaTitle:'Service client — VANTHARI', metaDescription:'Contactez le service client de VANTHARI dans la langue de votre choix.', languageLabel:'Langue',
           back:'Retour à VANTHARI', eyebrow:'Service client', title:'Écrivez dans votre langue.',
           intro:'Expliquez-nous comment nous pouvons vous aider, dans la langue de votre choix. Nous traduirons votre message en anglais, enverrons les deux versions à VANTHARI de façon sécurisée et vous montrerons la traduction anglaise.',
+          otherLanguageTitle:'Vous utilisez une autre langue ?', otherLanguage:'Vous pouvez aussi écrire dans toute autre langue. Elle sera détectée automatiquement et votre message sera traduit en anglais.',
           nameLabel:'Votre nom', emailLabel:'Votre adresse e-mail', topicLabel:'Comment pouvons-nous vous aider ?', topicChoose:'Choisissez un sujet',
           topicMembership:'Adhésion', topicBilling:'Facturation ou résiliation', topicEvents:'Événements ou présentations', topicTechnical:'Assistance technique', topicOther:'Autre demande',
           messageLabel:'Votre message — dans la langue de votre choix', messageNote:'N’indiquez aucun numéro de carte, mot de passe ou autre renseignement sensible.',
@@ -106,8 +120,10 @@
           footerSupport:'Service client', footerPrivacy:'Confidentialité', footerTerms:'Conditions', footerHome:'Accueil'
         },
         de: {
+          metaTitle:'Kundenservice — VANTHARI', metaDescription:'Kontaktieren Sie den VANTHARI-Kundenservice in einer beliebigen Sprache.', languageLabel:'Sprache',
           back:'Zurück zu VANTHARI', eyebrow:'Kundenservice', title:'Schreiben Sie in Ihrer Sprache.',
           intro:'Schildern Sie Ihr Anliegen in einer beliebigen Sprache. Wir übersetzen Ihre Nachricht ins Englische, senden beide Versionen sicher an VANTHARI und zeigen Ihnen die englische Übersetzung.',
+          otherLanguageTitle:'Sie verwenden eine andere Sprache?', otherLanguage:'Sie können auch in jeder anderen Sprache schreiben. Sie wird automatisch erkannt und Ihre Nachricht ins Englische übersetzt.',
           nameLabel:'Ihr Name', emailLabel:'Ihre E-Mail-Adresse', topicLabel:'Wobei können wir helfen?', topicChoose:'Thema auswählen',
           topicMembership:'Mitgliedschaft', topicBilling:'Abrechnung oder Kündigung', topicEvents:'Veranstaltungen oder Vorstellungen', topicTechnical:'Technische Hilfe', topicOther:'Anderes Anliegen',
           messageLabel:'Ihre Nachricht — in jeder Sprache', messageNote:'Bitte geben Sie keine Kartennummern, Passwörter oder andere vertrauliche Informationen an.',
@@ -119,8 +135,10 @@
           footerSupport:'Kundenservice', footerPrivacy:'Datenschutz', footerTerms:'Bedingungen', footerHome:'Startseite'
         },
         es: {
+          metaTitle:'Atención al cliente — VANTHARI', metaDescription:'Contacta con el servicio de atención al cliente de VANTHARI en cualquier idioma.', languageLabel:'Idioma',
           back:'Volver a VANTHARI', eyebrow:'Atención al cliente', title:'Escribe en tu idioma.',
           intro:'Cuéntanos cómo podemos ayudarte en cualquier idioma. Traduciremos tu mensaje al inglés, enviaremos ambas versiones de forma segura a VANTHARI y te mostraremos la traducción al inglés.',
+          otherLanguageTitle:'¿Utilizas otro idioma?', otherLanguage:'También puedes escribir en cualquier otro idioma. Se detectará automáticamente y tu mensaje se traducirá al inglés.',
           nameLabel:'Tu nombre', emailLabel:'Tu correo electrónico', topicLabel:'¿Cómo podemos ayudarte?', topicChoose:'Elige un tema',
           topicMembership:'Membresía', topicBilling:'Facturación o cancelación', topicEvents:'Eventos o presentaciones', topicTechnical:'Ayuda técnica', topicOther:'Otro asunto',
           messageLabel:'Tu mensaje — en cualquier idioma', messageNote:'No incluyas números de tarjeta, contraseñas ni otra información confidencial.',
@@ -133,20 +151,33 @@
         }
       };
 
+      const languageSelector = document.getElementById('service-language');
       let language = 'en';
+      let strings = copy.en;
+
+      function setLanguage(nextLanguage) {
+        language = copy[nextLanguage] ? nextLanguage : 'en';
+        strings = copy[language];
+        document.documentElement.lang = language;
+        document.title = strings.metaTitle;
+        document.querySelector('meta[name="description"]').content = strings.metaDescription;
+        document.querySelectorAll('[data-copy]').forEach((element) => {
+          const value = strings[element.dataset.copy];
+          if(value !== undefined) element.textContent = value;
+        });
+        document.querySelectorAll('[data-copy-html]').forEach((element) => {
+          const value = strings[element.dataset.copyHtml];
+          if(value !== undefined) element.innerHTML = value;
+        });
+        languageSelector.value = language;
+        languageSelector.setAttribute('aria-label', strings.languageLabel);
+        try { localStorage.setItem('vanthari-language', language); } catch (_) {}
+      }
+
       try { language = localStorage.getItem('vanthari-language') || language; } catch (_) {}
       if(!copy[language]) language = (navigator.language || 'en').slice(0, 2).toLowerCase();
-      if(!copy[language]) language = 'en';
-      const strings = copy[language];
-      document.documentElement.lang = language;
-      document.querySelectorAll('[data-copy]').forEach((element) => {
-        const value = strings[element.dataset.copy];
-        if(value !== undefined) element.textContent = value;
-      });
-      document.querySelectorAll('[data-copy-html]').forEach((element) => {
-        const value = strings[element.dataset.copyHtml];
-        if(value !== undefined) element.innerHTML = value;
-      });
+      setLanguage(language);
+      languageSelector.addEventListener('change', (event) => setLanguage(event.target.value));
 
       const form = document.getElementById('support-form');
       const message = document.getElementById('message');
