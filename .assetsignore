@@ -1,0 +1,16 @@
+**/node_modules
+**/.git
+**/.DS_Store
+.assetsignore
+.gitignore
+.dev.vars*
+.env*
+README.md
+package.json
+package-lock.json
+worker.js
+worker-configuration.d.ts
+wrangler.jsonc
+functions
+test
+payment_platforms

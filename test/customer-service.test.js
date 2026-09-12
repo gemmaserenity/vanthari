@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { onRequestGet, onRequestPost } from '../functions/api/customer-service.js';
+import worker from '../worker.js';
 
 const endpoint = 'https://vanthari.example/api/customer-service';
 
@@ -75,4 +76,25 @@ test('rejects cross-origin submissions', async () => {
 test('returns method not allowed for a direct GET', async () => {
   const response = onRequestGet();
   assert.equal(response.status, 405);
+});
+
+test('Worker routes static requests through the assets binding', async () => {
+  let requestedUrl;
+  const response = await worker.fetch(new Request('https://vanthari.example/customer-service/'), {
+    ASSETS: {
+      async fetch(request) {
+        requestedUrl = request.url;
+        return new Response('customer service page');
+      }
+    }
+  });
+
+  assert.equal(response.status, 200);
+  assert.equal(requestedUrl, 'https://vanthari.example/customer-service/');
+});
+
+test('Worker rejects unsupported methods on the customer-service API', async () => {
+  const response = await worker.fetch(new Request(endpoint, { method: 'DELETE' }), {});
+  assert.equal(response.status, 405);
+  assert.equal(response.headers.get('Allow'), 'GET, POST');
 });
